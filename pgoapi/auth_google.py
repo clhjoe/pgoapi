@@ -27,14 +27,14 @@ from __future__ import absolute_import
 
 import six
 import logging
-
+import random,string
 from pgoapi.auth import Auth
 from pgoapi.exceptions import AuthException
 from gpsoauth import perform_master_login, perform_oauth
 
 class AuthGoogle(Auth):
 
-    GOOGLE_LOGIN_ANDROID_ID = '9774d56d682e549c'
+    GOOGLE_LOGIN_ANDROID_ID = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(16))
     GOOGLE_LOGIN_SERVICE= 'audience:server:client_id:848232511240-7so421jotr2609rmqakceuu1luuq0ptb.apps.googleusercontent.com'
     GOOGLE_LOGIN_APP = 'com.nianticlabs.pokemongo'
     GOOGLE_LOGIN_CLIENT_SIG = '321187995bc7cdc2b5fc91b11a96e2baa8602c62'
